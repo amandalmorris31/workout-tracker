@@ -15,8 +15,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+// routes
+app.use(require("./routes/apihtmlroutes.js"));
 
 
 // db.User.create({ name: "Ernest Hemingway" })
