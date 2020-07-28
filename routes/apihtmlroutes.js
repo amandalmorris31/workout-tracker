@@ -2,8 +2,7 @@
 // =============================================================
 var path = require("path");
 
-
-  const router = require("express").Router();
+const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 router.get("/", function(req, res) {
@@ -38,26 +37,16 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-
+//need to complete this PUT
 router.put("/api/workouts/:id", ({ body }, res) => {
-  Transaction.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+  Workout.create(body)
+    .then(dbWorkout => {
+      res.json(dbWorkout);
     })
     .catch(err => {
       res.status(400).json(err);
     });
 });
-
-// router.post("/api/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
 
 
 

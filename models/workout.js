@@ -20,23 +20,22 @@ const workoutSchema = new Schema({
         trim: true,
         required: "Enter a name for duration"
       },
-      weight: {
-        type: Number,
-
-      },
-      reps: {
+    weight: {
         type: Number,
         trim: true,
       },
-      sets: {
+    reps: {
         type: Number,
         trim: true,
       },
-      distance: {
+    sets: {
+        type: Number,
+        trim: true,
+      },
+    distance: {
         type: String,
         trim: true,
       },
-
   }
 ],
 
@@ -45,6 +44,8 @@ const workoutSchema = new Schema({
     default: Date.now
   }
 });
+
+//customs ffx totalWeight, totalSets, totalReps, totalDistance, totalDuration
 
 const Workout = mongoose.model("Workout", workoutSchema);
 
