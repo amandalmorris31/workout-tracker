@@ -37,8 +37,8 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-//need to complete this PUT
-router.put("/api/workouts/:id", ({ body }, res) => {
+//need to complete this POST
+router.post("/api/workouts/", ({ body }, res) => {
   Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
