@@ -50,4 +50,12 @@ router.post("/api/workouts/", ({ body }, res) => {
 
 
 
+// app.put("/api/images/:id", function(req, res) {
+//   db.Image.updateOne({ _id: req.params.id }, { rating: req.body.rating }).then(function(dbImage) {
+//     res.json(dbImage);
+//   });
+// });
+
+
+
 module.exports = router;

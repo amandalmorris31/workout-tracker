@@ -45,7 +45,7 @@ const workoutSchema = new Schema({
   }
 });
 
-//customs ffx totalWeight, totalSets, totalReps, totalDistance, totalDuration
+//custom methods totalWeight, totalSets, totalReps, totalDistance, totalDuration
 
 const Workout = mongoose.model("Workout", workoutSchema);
 
