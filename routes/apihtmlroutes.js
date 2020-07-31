@@ -37,8 +37,25 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+//When request, do something
+router.put("/api/workouts/:id", ({ body }, res) => {
+  console.log("IN THE PUT", body, Workout);
+  const newWorkout = { 
+    exercises: [ body ]
+  }
+  Workout.create(newWorkout)
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+
 //need to complete this POST
-router.post("/api/workouts/", ({ body }, res) => {
+router.post("/api/workouts", ({ body }, res) => {
+  console.log(body);
   Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -47,6 +64,7 @@ router.post("/api/workouts/", ({ body }, res) => {
       res.status(400).json(err);
     });
 });
+
 
 
 

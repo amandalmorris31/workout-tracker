@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+
 const workoutSchema = new Schema({
   exercises:[ 
  {
@@ -44,6 +45,28 @@ const workoutSchema = new Schema({
     default: Date.now
   }
 });
+
+// animalSchema.methods.totalWeight = function(cb) {
+//   return mongoose.model('Animal').find({ type: this.type }, cb);
+// };
+
+
+ // create a document
+//  var axl = new Person({
+//   name: { first: 'Axl', last: 'Rose' }
+// });
+
+workoutSchema.methods.totalWeight = function(cb) {
+  return mongoose.model('Workout').find({ type: this.type }, cb);
+}
+
+workoutSchema.methods.create = function(body) {
+  console.log("create Body", body);
+};
+
+
+
+
 
 //custom methods totalWeight, totalSets, totalReps, totalDistance, totalDuration
 
