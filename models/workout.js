@@ -60,10 +60,14 @@ workoutSchema.methods.totalWeight = function(cb) {
   return mongoose.model('Workout').find({ type: this.type }, cb);
 }
 
-workoutSchema.methods.create = function(body) {
-  console.log("create Body", body);
-};
+// workoutSchema.methods.create = function(body) {
+//   console.log("create Body", body);
+// };
 
+// Workout.create({ size: 'small' }, function (err, small) {
+//   if (err) return handleError(err);
+//   // saved!
+// });
 
 
 

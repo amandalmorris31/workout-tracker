@@ -38,18 +38,28 @@ router.get("/api/workouts", (req, res) => {
 });
 
 //When request, do something
-router.put("/api/workouts/:id", ({ body }, res) => {
-  console.log("IN THE PUT", body, Workout);
-  const newWorkout = { 
-    exercises: [ body ]
-  }
-  Workout.create(newWorkout)
-    .then(dbWorkout => {
-      res.json(dbWorkout);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+router.put("/api/workouts/:id", (req, res) => {
+  console.log("IN THE PUT"+ req.body);
+  Workout.findByIdAndUpdate(req.params.id,  {$push:{exercises:req.body} }, 
+                            function (err, workoutobj) { 
+    if (err){ 
+        console.log(err) 
+    } 
+    else{ 
+        console.log("Updated workout "); 
+        res.json(workoutobj)
+    } 
+}); 
+  // const newWorkout = { 
+  //   exercises: [ req.body ]
+  // }
+  // Workout.create(newWorkout)
+  //   .then(dbWorkout => {
+  //     res.json(dbWorkout);
+  //   })
+  //   .catch(err => {
+  //     res.status(400).json(err);
+  //   });
 });
 
 
