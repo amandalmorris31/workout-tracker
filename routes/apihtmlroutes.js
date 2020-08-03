@@ -39,31 +39,21 @@ router.get("/api/workouts", (req, res) => {
 
 //When request, do something
 router.put("/api/workouts/:id", (req, res) => {
-  console.log("IN THE PUT"+ req.body);
+  // console.log("IN THE PUT"+ req.body);
   Workout.findByIdAndUpdate(req.params.id,  {$push:{exercises:req.body} }, 
                             function (err, workoutobj) { 
     if (err){ 
         console.log(err) 
     } 
     else{ 
-        console.log("Updated workout "); 
+        console.log("Updated workout"); 
         res.json(workoutobj)
     } 
 }); 
-  // const newWorkout = { 
-  //   exercises: [ req.body ]
-  // }
-  // Workout.create(newWorkout)
-  //   .then(dbWorkout => {
-  //     res.json(dbWorkout);
-  //   })
-  //   .catch(err => {
-  //     res.status(400).json(err);
-  //   });
+
 });
 
 
-//need to complete this POST
 router.post("/api/workouts", ({ body }, res) => {
   console.log(body);
   Workout.create(body)
@@ -74,16 +64,5 @@ router.post("/api/workouts", ({ body }, res) => {
       res.status(400).json(err);
     });
 });
-
-
-
-
-// app.put("/api/images/:id", function(req, res) {
-//   db.Image.updateOne({ _id: req.params.id }, { rating: req.body.rating }).then(function(dbImage) {
-//     res.json(dbImage);
-//   });
-// });
-
-
 
 module.exports = router;

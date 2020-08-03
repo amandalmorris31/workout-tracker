@@ -38,13 +38,13 @@ function tallyDuration(exerciseArray){
 }
 
 function tallyExercises(exercises) {
-  const tallied = exercises.reduce((acc, curr) => { //reduce is a sumation function in es6
+  const tallied = exercises.reduce((acc, curr) => { //reduce is a summation function in es6
     if (curr.type === "resistance") {
       acc.totalWeight = (acc.totalWeight || 0) + curr.weight;
       acc.totalSets = (acc.totalSets || 0) + curr.sets;
       acc.totalReps = (acc.totalReps || 0) + curr.reps;
     } else if (curr.type === "cardio") {
-      acc.totalDistance = (acc.totalDistance || 0) + curr.distance;
+      acc.totalDistance = (acc.totalDistance || 0) + parseInt(curr.distance);
     }
     return acc;
   }, {});

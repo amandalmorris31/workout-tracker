@@ -46,16 +46,6 @@ const workoutSchema = new Schema({
   }
 });
 
-// animalSchema.methods.totalWeight = function(cb) {
-//   return mongoose.model('Animal').find({ type: this.type }, cb);
-// };
-
-
- // create a document
-//  var axl = new Person({
-//   name: { first: 'Axl', last: 'Rose' }
-// });
-
 workoutSchema.methods.totalWeight = function(cb) {
   return mongoose.model('Workout').find({ type: this.type }, cb);
 }
@@ -70,9 +60,6 @@ workoutSchema.methods.totalWeight = function(cb) {
 // });
 
 
-
-
-//custom methods totalWeight, totalSets, totalReps, totalDistance, totalDuration
 
 const Workout = mongoose.model("Workout", workoutSchema);
 
